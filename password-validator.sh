@@ -1,4 +1,5 @@
 #echo "Password: $1" 
+#need to add capabiity to read password from file
 password=$1
 
 goodpassword=3
