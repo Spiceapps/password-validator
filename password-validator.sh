@@ -5,9 +5,9 @@ if [ "${#password}" -ge 10 ] &&             #Check for length
    [[ $password == *[[:upper:]]* ]] &&      #check uppercase
    [[ $password == *[!@\#$%^\&*()]* ]]      #check special characters
 then
-    echo 'good'
+    echo "$(tput setaf 2)Good Password"
     exit 0
 else
-    echo 'not good'
+    echo "$(tput setaf 1)Password Does not fulfill requirements"
     exit 1
 fi
