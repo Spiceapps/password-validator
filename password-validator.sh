@@ -35,10 +35,9 @@ if [[ $password =~ [!@\#$%^\&*()] ]]; then #check special characters
     exit 1
 fi   
 
-if [[ "$goodpassword" = 1 ]]; then
+if [[ "$goodpassword" = 1 ]]; then  #check the goodpassword variable to determine exit code
     echo "$(tput setaf 2)Good Password"
     exit 0
-else
-    echo "$(tput setaf 1)Password Does not fulfill requirements"
+else 
     exit 1
 fi
