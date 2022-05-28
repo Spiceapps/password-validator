@@ -1,8 +1,24 @@
-#echo "Password: $1" 
-password=$1
+#   USAGE EXAMPLES:
+#   ./password-validator.sh -f badpass.txt 
+#   ./password-validator.sh -f password.txt 
+#   ./password-validator.sh 12345
+#
+#   I KNOW THIS IS A VERY SIMPLISTIC IMPLEMENTATION WITHOUT ANY FILE CHECKING OR ERROR HANDLING.
+#   
+#
 
-goodpassword=3
+ARG1=$1
 
+if [[ $ARG1 == "-f" ]]  #check if the first argument is -f, in order to get the password from the file in the second argument
+then
+        #echo "-f detected"
+        password=$(< "$2")
+else
+        #echo "-f NOT detected"
+        password=$1
+fi
+
+goodpassword=3  #helper for exit status
 if [ "${#password}" -ge 10 ]; then #Check for length
     echo "passed length"
     goodpassword=1
